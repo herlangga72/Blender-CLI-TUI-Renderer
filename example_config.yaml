@@ -1,0 +1,35 @@
+# Example configuration file for the Blender CLI Renderer
+
+# Input can be a local path or an HTTPS URL
+input:
+  source: "https://download.blender.org/demo/benchmark/bmw27_2.blend"
+
+# Output configuration
+output:
+  path: "./renders/"
+  format: "PNG"
+  color_depth: "8"
+
+# Render settings
+render:
+  engine: "CYCLES"
+  samples: 128
+  resolution: [1920, 1080]
+  frame_start: 1
+  frame_end: 1
+  # scene: "Scene_Name" # Optional: specify a scene to render
+
+# Cycles-specific device settings
+cycles:
+  device: "OPTIX" # Options: CPU, CUDA, OPTIX, METAL. App will auto-detect and fallback.
+
+# System and monitoring settings
+system:
+  shutdown_after_render: false
+gpu_monitoring:
+  enabled: true
+  log_file: "./gpu_utilization.log"
+  log_interval: 3 # in seconds
+logging:
+  level: "INFO" # DEBUG, INFO, WARNING, ERROR
+  file: "./app.log"
